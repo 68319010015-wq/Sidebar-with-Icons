@@ -1,131 +1,217 @@
+/* ==========================================
+   1. ตั้งค่าเริ่มต้นระบบพื้นฐาน
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Sarabun', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
 
 body {
     display: flex;
-    background: #FFFBEB; 
-    color: #451A03;    
+    background: #f8fafc;
+    color: #334155;
 }
 
-/* --- Sidebar --- */
+/* ==========================================
+   2. สไตล์แถบเมนูด้านซ้าย (Sidebar)
+   ========================================== */
 .sidebar {
-    width: 260px;         
-    height: 100vh;        
-    background: #FBBF24;  
-    color: #451A03;       
-    position: fixed;
-    box-shadow: 4px 0 10px rgba(0,0,0,0.1); 
+    width: 250px;
+    height: 100vh;
+    background: #1E293B;
+    color: white;
+    position: fixed; /* 📌 ตรึงเมนูไว้ด้านซ้ายไม่ให้เลื่อนตามหน้าจอ */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
     z-index: 100;
 }
 
-.sidebar-header {
+.sidebar h2 {
     text-align: center;
     padding: 25px 20px;
-    background: #F59E0B;  
-    border-bottom: 2px solid #D97706; 
-}
-
-.sidebar h2 {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: #451A03;
-}
-
-.gold-icon {
-    color: #D97706; 
-    font-size: 24px;
-    margin-bottom: 10px;
-    display: block;
+    background: #0f172a;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    line-height: 1.4;
 }
 
 .sidebar ul {
     list-style: none;
-    padding-top: 10px;
+    margin-top: 10px;
 }
 
-/* --- เมนู (ใช้ Flexbox และมี Hover Effect) --- */
+.sidebar ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .sidebar ul li a {
-    display: flex;          
+    display: flex;
     align-items: center;
-    color: #451A03;       
+    color: #cbd5e1;
     text-decoration: none;
-    padding: 15px 25px;
-    transition: all 0.3s ease; 
-    font-weight: 500;
+    padding: 16px 20px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
 }
 
 .sidebar ul li a i {
-    width: 30px;
+    width: 35px;
     font-size: 18px;
-    color: #D97706; 
+    transition: 0.3s;
 }
 
-/* เมื่อเมาส์ชี้ หรือ ปุ่มถูกเลือก (Active) ให้ค้างสีเหลืองเข้มไว้ */
-.sidebar ul li a:hover, 
-.sidebar ul li a.active {
-    background: #F59E0B;    
-    padding-left: 30px;     
+.sidebar ul li a:hover, .sidebar ul li a.active {
+    background: #334155;
+    color: white;
+    padding-left: 28px;
 }
 
-/* --- ส่วนเนื้อหาและการควบคุมการแสดงผล --- */
-.content {
-    margin-left: 260px;     
-    padding: 50px;
-    width: calc(100% - 260px);
+.sidebar ul li a:hover i, .sidebar ul li a.active i {
+    color: #38bdf8;
 }
 
-/* ซ่อนเนื้อหาทุกหน้าไว้เป็นค่าเริ่มต้น */
-.page-content {
-    display: none; 
+/* ==========================================
+   3. สไตล์กล่องเนื้อหาหลัก (แก้ปัญหาโดนบดบัง)
+   ========================================== */
+.content-container {
+    margin-left: 250px; /* 📌 ดันเนื้อหาไปทางขวา 250px เพื่อหลบ Sidebar ไม่ให้ทับกัน */
+    padding: 40px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
 }
 
-/* หน้าไหนที่มี class active จะนำมาแสดงผล */
-.page-content.active {
-    display: block; 
-    animation: fadeIn 0.5s ease; /* เพิ่มแอนิเมชันตอนเปลี่ยนหน้าให้ดูนุ่มนวล */
+/* 📌 จุดสำคัญ: แก้ไขระบบซ่อนและสลับหน้า */
+.tab-content {
+    display: none; /* 📌 ซ่อนเนื้อหาทั้งหมดเป็นค่าเริ่มต้น (ไม่ให้โผล่มาพร้อมกันยาวๆ) */
+    animation: fadeIn 0.4s ease;
 }
 
-.content-header {
-    border-left: 5px solid #D97706; 
-    padding-left: 20px;
-    margin-bottom: 30px;
+.tab-content.active {
+    display: block; /* 📌 แสดงเฉพาะหน้าที่มีคลาส active เท่านั้น */
 }
 
-.content h1 {
-    color: #451A03;
-    font-size: 36px;
-    font-weight: 700;
-}
-
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-}
-
-.card h2 {
-    color: #F59E0B; 
-    font-size: 24px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.card p {
-    color: #6B7280; 
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-/* เอฟเฟกต์แอนิเมชันตอนเปลี่ยนหน้า */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    color: #1e293b;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #38bdf8;
+    padding-bottom: 10px;
+}
+
+.welcome-text {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+.info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.info-card h3 {
+    color: #0f172a;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==========================================
+   4. จัดขนาดรูปภาพในเครื่องให้เท่ากันเป๊ะ อยู่ตรงกลาง ไม่เบียดตัวหนังสือ
+   ========================================== */
+.content-image {
+    width: 100%;
+    max-width: 600px;      /* บังคับความกว้างสูงสุดให้มีขนาดเท่ากัน */
+    height: 350px;         /* บังคับความสูงเท่ากันหมดทุกรูป */
+    object-fit: cover;     /* 📌 ป้องกันรูปเบี้ยว รูปยืด หรือสัดส่วนเพี้ยนเมื่อนำรูปในเครื่องมาใส่ */
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background: #e2e8f0;   /* แสดงพื้นหลังสีเทาอ่อนหากยังไม่ได้ใส่ไฟล์รูปจริง */
+    
+    /* เว้นระยะรอบๆ ป้องกันการเบียดตัวหนังสือ */
+    margin-top: 25px;      
+    margin-bottom: 15px;   
+    display: block;        
+    margin-left: auto;     /* จัดวางรูปให้อยู่ตรงกึ่งกลางหน้าจอพอดี */
+    margin-right: auto;    /* จัดวางรูปให้อยู่ตรงกึ่งกลางหน้าจอพอดี */
+}
+
+/* ==========================================
+   5. หน้าประวัติผู้จัดทำและสไตล์แบบทดสอบ
+   ========================================== */
+.profile-container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #38bdf8;
+    background: #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.profile-img i {
+    font-size: 60px;
+    color: #64748b;
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h3 {
+    font-size: 1.6rem;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.quiz-btn {
+    display: inline-block;
+    background: #10b981;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.quiz-btn:hover {
+    background: #059669;
 }
