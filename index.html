@@ -3,144 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>องค์ประกอบของคอมพิวเตอร์ - ธีมสีเหลืองราชา</title>
-    
+    <title>องค์ประกอบของคอมพิวเตอร์</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="sidebar">
-        <div class="sidebar-header">
-            <i class="fas fa-crown gold-icon"></i>
-            <h2>องค์ประกอบ<br>คอมพิวเตอร์</h2>
-        </div>
-        
+        <h2>องค์ประกอบ<br>คอมพิวเตอร์</h2>
         <ul>
-            <li><a href="#" class="menu-btn active" onclick="switchPage('home')"><i class="fas fa-house"></i> หน้าแรก</a></li>
-            <li><a href="#" class="menu-btn" onclick="switchPage('cpu')"><i class="fas fa-microchip"></i> CPU</a></li>
-            <li><a href="#" class="menu-btn" onclick="switchPage('ram')"><i class="fas fa-memory"></i> RAM</a></li>
-            <li><a href="#" class="menu-btn" onclick="switchPage('storage')"><i class="fas fa-hard-drive"></i> Storage</a></li>
-            <li><a href="#" class="menu-btn" onclick="switchPage('display')"><i class="fas fa-desktop"></i> อุปกรณ์แสดงผล</a></li>
-            <li><a href="#" class="menu-btn" onclick="switchPage('input')"><i class="fas fa-keyboard"></i> อุปกรณ์รับข้อมูล</a></li>
-            <li><a href="#" class="menu-btn" onclick="switchPage('network')"><i class="fas fa-network-wired"></i> ระบบเครือข่าย</a></li>
-            <li><a href="#" class="menu-btn" onclick="switchPage('quiz')"><i class="fas fa-book"></i> แบบทดสอบ</a></li>
-            <li><a href="#" class="menu-btn" onclick="switchPage('author')"><i class="fas fa-address-card"></i> ผู้จัดทำ</a></li>
+            <li><a href="#" class="menu-link active" onclick="openTab(event, 'home')"><i class="fas fa-house"></i> หน้าแรก</a></li>
+            <li><a href="#" class="menu-link" onclick="openTab(event, 'cpu')"><i class="fas fa-microchip"></i> CPU</a></li>
+            <li><a href="#" class="menu-link" onclick="openTab(event, 'ram')"><i class="fas fa-memory"></i> RAM</a></li>
+            <li><a href="#" class="menu-link" onclick="openTab(event, 'storage')"><i class="fas fa-hard-drive"></i> Storage</a></li>
+            <li><a href="#" class="menu-link" onclick="openTab(event, 'output')"><i class="fas fa-desktop"></i> อุปกรณ์แสดงผล</a></li>
+            <li><a href="#" class="menu-link" onclick="openTab(event, 'input')"><i class="fas fa-keyboard"></i> อุปกรณ์รับข้อมูล</a></li>
+            <li><a href="#" class="menu-link" onclick="openTab(event, 'network')"><i class="fas fa-network-wired"></i> ระบบเครือข่าย</a></li>
+            <li><a href="#" class="menu-link" onclick="openTab(event, 'quiz')"><i class="fas fa-book"></i> แบบทดสอบ</a></li>
+            <li><a href="#" class="menu-link" onclick="openTab(event, 'author')"><i class="fas fa-address-card"></i> ผู้จัดทำ</a></li>
         </ul>
     </div>
 
-    <div class="content">
-        
-        <div id="home" class="page-content active">
-            <div class="content-header">
-                <h1>วิชาองค์ประกอบของคอมพิวเตอร์</h1>
-            </div>
-            <div class="card">
-                <h2>ยินดีต้อนรับเข้าสู่บทเรียนออนไลน์!</h2>
-                <p>เนื้อหาประกอบด้วยหน่วยการเรียนรู้เกี่ยวกับส่วนประกอบต่าง ๆ ของคอมพิวเตอร์และการทำงานของระบบคอมพิวเตอร์ เพื่อให้คุณเข้าใจสถาปัตยกรรมและการเชื่อมต่อของฮาร์ดแวร์แต่ละชิ้นได้อย่างลึกซึ้ง</p>
+    <div class="content-container">
+
+        <div id="home" class="tab-content active">
+            <h1>วิชาองค์ประกอบของคอมพิวเตอร์</h1>
+            <p class="welcome-text">ยินดีต้อนรับเข้าสู่บทเรียนออนไลน์เกี่ยวกับส่วนประกอบและการทำงานของระบบคอมพิวเตอร์</p>
+            <div class="info-card">
+                <h3><i class="fas fa-star" style="color:#f59e0b;"></i> แนะนำรายวิชา</h3>
+                <p>คอมพิวเตอร์ทำงานอย่างเป็นระบบ โดยอาศัยการประสานงานกันระหว่างฮาร์ดแวร์ (Hardware) และซอฟต์แวร์ (Software) ในบทเรียนนี้เราจะเจาะลึกไปที่ฮาร์ดแวร์หรืออุปกรณ์ที่จับต้องได้ ซึ่งแบ่งออกเป็นหน่วยสำคัญๆ เช่น หน่วยประมวลผล หน่วยความจำ และอุปกรณ์อินพุต-เอาต์พุต เพื่อให้เข้าใจว่าคอมพิวเตอร์หนึ่งเครื่องทำงานได้อย่างไร</p>
+                <img src="img/วิชาองค์ประกอบของคอมพิวเตอร์.jpg" alt="คอมพิวเตอร์" class="content-image">
             </div>
         </div>
 
-        <div id="cpu" class="page-content">
-            <div class="content-header">
-                <h1>CPU (Central Processing Unit)</h1>
-            </div>
-            <div class="card">
-                <h2>หน่วยประมวลผลกลาง</h2>
-                <p>เปรียบเสมือนสมองของคอมพิวเตอร์ ทำหน้าที่คำนวณ ตีความคำสั่ง และควบคุมการทำงานของฮาร์ดแวร์ส่วนอื่น ๆ ในระบบคอมพิวเตอร์</p>
-            </div>
-        </div>
-
-        <div id="ram" class="page-content">
-            <div class="content-header">
-                <h1>RAM (Random Access Memory)</h1>
-            </div>
-            <div class="card">
-                <h2>หน่วยความจำหลักแบบชั่วคราว</h2>
-                <p>ทำหน้าที่เก็บข้อมูลที่คอมพิวเตอร์กำลังใช้งานอยู่ในขณะนั้น เพื่อให้ CPU สามารถเข้าถึงข้อมูลได้อย่างรวดเร็ว เมื่อปิดเครื่องข้อมูลจะหายไป</p>
+        <div id="cpu" class="tab-content">
+            <h1>CPU (Central Processing Unit)</h1>
+            <p class="welcome-text">หน่วยประมวลผลกลาง</p>
+            <div class="info-card">
+                <h3><i class="fas fa-microchip" style="color:#ef4444;"></i> สมองของคอมพิวเตอร์</h3>
+                <p><strong>CPU</strong> ทำหน้าที่คำนวณ เปรียบเทียบ และควบคุมการทำงานของอุปกรณ์ทั้งหมดในระบบ เปรียบเสมือนสมองของมนุษย์ ความเร็วของคอมพิวเตอร์จะขึ้นอยู่กับประสิทธิภาพของ CPU เป็นหลัก โดยภายในประกอบด้วย หน่วยคำนวณและตรรกะ (ALU) และหน่วยควบคุม (CU)</p>
+                <img src="img/cpu.jpg" alt="CPU" class="content-image">
             </div>
         </div>
 
-        <div id="storage" class="page-content">
-            <div class="content-header">
-                <h1>Storage (หน่วยจัดเก็บข้อมูล)</h1>
-            </div>
-            <div class="card">
-                <h2>หน่วยความจำสำรอง</h2>
-                <p>ใช้สำหรับบันทึกข้อมูลและโปรแกรมต่าง ๆ ไว้ในเครื่องแบบถาวร แม้ปิดเครื่องข้อมูลก็ไม่สูญหาย เช่น SSD (Solid State Drive) และ HDD (Hard Disk Drive)</p>
-            </div>
-        </div>
-
-        <div id="display" class="page-content">
-            <div class="content-header">
-                <h1>Output Devices (อุปกรณ์แสดงผล)</h1>
-            </div>
-            <div class="card">
-                <h2>การแสดงผลลัพธ์ข้อมูล</h2>
-                <p>ทำหน้าที่นำผลลัพธ์ที่ได้จากการประมวลผลมาแสดงให้อยู่ในรูปแบบที่มนุษย์เข้าใจ เช่น จอภาพ (Monitor), เครื่องพิมพ์ (Printer) และลำโพง (Speaker)</p>
+        <div id="ram" class="tab-content">
+            <h1>RAM (Random Access Memory)</h1>
+            <p class="welcome-text">หน่วยความจำหลักแบบชั่วคราว</p>
+            <div class="info-card">
+                <h3><i class="fas fa-memory" style="color:#3b82f6;"></i> พื้นที่ทำงานของระบบ</h3>
+                <p><strong>RAM</strong> เป็นหน่วยความจำหลักที่ทำงานร่วมกับ CPU โดยตรง ทำหน้าที่เก็บข้อมูลและโปรแกรมที่กำลังใช้งานอยู่ ณ ขณะนั้น ข้อจำกัดคือข้อมูลจะหายไปทันทีเมื่อปิดเครื่อง (Volatile Memory) ยิ่งมี RAM มาก คอมพิวเตอร์ก็ยิ่งเปิดโปรแกรมหลายๆ อย่างพร้อมกันได้ลื่นไหลขึ้น</p>
+                <img src="img/ram.jpg" alt="RAM" class="content-image">
             </div>
         </div>
 
-        <div id="input" class="page-content">
-            <div class="content-header">
-                <h1>Input Devices (อุปกรณ์รับข้อมูล)</h1>
-            </div>
-            <div class="card">
-                <h2>การนำเข้าข้อมูล</h2>
-                <p>เป็นอุปกรณ์ที่ทำหน้าที่รับคำสั่งหรือข้อมูลจากผู้ใช้ส่งเข้าไปยังคอมพิวเตอร์ เช่น แป้นพิมพ์ (Keyboard), เมาส์ (Mouse) และไมโครโฟน (Microphone)</p>
-            </div>
-        </div>
-
-        <div id="network" class="page-content">
-            <div class="content-header">
-                <h1>Computer Network (ระบบเครือข่าย)</h1>
-            </div>
-            <div class="card">
-                <h2>การสื่อสารข้อมูล</h2>
-                <p>การเชื่อมต่อคอมพิวเตอร์ตั้งแต่สองเครื่องขึ้นไปเข้าด้วยกัน เพื่อใช้ในการแลกเปลี่ยนข้อมูลข่าวสาร หรือใช้อุปกรณ์ฮาร์ดแวร์ร่วมกัน เช่น การใช้อินเทอร์เน็ต และเราเตอร์ (Router)</p>
+        <div id="storage" class="tab-content">
+            <h1>หน่วยจัดเก็บข้อมูล (Storage)</h1>
+            <p class="welcome-text">พื้นที่เก็บข้อมูลถาวร</p>
+            <div class="info-card">
+                <h3><i class="fas fa-hard-drive" style="color:#a855f7;"></i> SSD และ HDD</h3>
+                <p>ทำหน้าที่เก็บข้อมูลระบบปฏิบัติการ (OS), โปรแกรม และไฟล์งานต่างๆ ของเราอย่างถาวร แม้ปิดเครื่องข้อมูลก็ไม่สูญหาย ปัจจุบันนิยมใช้ <strong>SSD (Solid State Drive)</strong> เนื่องจากมีความเร็วในการอ่าน-เขียนข้อมูลสูงกว่า <strong>HDD (Hard Disk Drive)</strong> แบบจานหมุนรุ่นเก่าหลายเท่าตัว</p>
+                <img src="img/Storage.jpg" alt="Storage" class="content-image">
             </div>
         </div>
 
-        <div id="quiz" class="page-content">
-            <div class="content-header">
-                <h1>แบบทดสอบท้ายบทเรียน</h1>
-            </div>
-            <div class="card">
-                <h2>ทดสอบความรู้</h2>
-                <p>เตรียมพบกับแบบทดสอบวัดระดับความรู้ความเข้าใจเกี่ยวกับองค์ประกอบของคอมพิวเตอร์เร็ว ๆ นี้...</p>
+        <div id="output" class="tab-content">
+            <h1>อุปกรณ์แสดงผล (Output Devices)</h1>
+            <p class="welcome-text">การแปลงผลลัพธ์ให้มนุษย์เข้าใจ</p>
+            <div class="info-card">
+                <h3><i class="fas fa-desktop" style="color:#14b8a6;"></i> หน้าจอ ลำโพง และเครื่องพิมพ์</h3>
+                <p>ทำหน้าที่นำผลลัพธ์ที่ได้จากการประมวลผลของ CPU มาแปลงเป็นรูปแบบที่มนุษย์สามารถรับรู้ได้ เช่น <strong>หน้าจอ (Monitor)</strong> แสดงผลเป็นภาพ, <strong>ลำโพง (Speaker)</strong> แสดงผลเป็นเสียง และ <strong>เครื่องพิมพ์ (Printer)</strong> แสดงผลเป็นเอกสารบนแผ่นกระดาษ</p>
+                <img src="img/Output Devices.jpg" alt="Output Device" class="content-image">
             </div>
         </div>
 
-        <div id="author" class="page-content">
-            <div class="content-header">
-                <h1>ข้อมูลผู้จัดทำ</h1>
+        <div id="input" class="tab-content">
+            <h1>อุปกรณ์รับข้อมูล (Input Devices)</h1>
+            <p class="welcome-text">สะพานเชื่อมจากผู้ใช้สู่คอมพิวเตอร์</p>
+            <div class="info-card">
+                <h3><i class="fas fa-keyboard" style="color:#f97316;"></i> คีย์บอร์ด เมาส์ และไมโครโฟน</h3>
+                <p>เป็นอุปกรณ์ที่ทำหน้าที่รับคำสั่งหรือข้อมูลจากผู้ใช้ ส่งเข้าไปให้คอมพิวเตอร์ประมวลผล อุปกรณ์มาตรฐานที่จำเป็นต้องมีคือ <strong>คีย์บอร์ด (Keyboard)</strong> สำหรับพิมพ์ข้อความ และ <strong>เมาส์ (Mouse)</strong> สำหรับคลิกสั่งงาน หรือปัจจุบันมีหน้าจอสัมผัส (Touchscreen) ที่ทำหน้าที่รับข้อมูลได้ด้วย</p>
+                <img src="img/Input Devices.jpg" alt="Input Device" class="content-image">
             </div>
-            <div class="card">
-                <h2>จัดทำโดย</h2>
-                <p>นายธีรพัฒน์ พิมพ์บุญ<br>ขอขอบคุณทุกท่านที่เข้ามาเยี่ยมชมและใช้งานเว็บไซต์บทเรียนออนไลน์นี้</p>
+        </div>
+
+        <div id="network" class="tab-content">
+            <h1>ระบบเครือข่าย (Network)</h1>
+            <p class="welcome-text">การสื่อสารไร้พรมแดน</p>
+            <div class="info-card">
+                <h3><i class="fas fa-network-wired" style="color:#6366f1;"></i> LAN, Wi-Fi และ Internet</h3>
+                <p>ส่วนประกอบที่ช่วยให้คอมพิวเตอร์สามารถเชื่อมต่อและแลกเปลี่ยนข้อมูลกับคอมพิวเตอร์เครื่องอื่นได้ ประกอบด้วยอุปกรณ์ฮาร์ดแวร์ เช่น การ์ดแลน (LAN Card), เราเตอร์ (Router) และตัวรับสัญญาณ Wi-Fi ทำให้เราสามารถใช้งานอินเทอร์เน็ตและแชร์ทรัพยากรร่วมกันได้</p>
+                <img src="img/Computer Network.jpg" alt="Network" class="content-image">
+            </div>
+        </div>
+
+        <div id="quiz" class="tab-content">
+            <h1>แบบทดสอบท้ายบทเรียน</h1>
+            <p class="welcome-text">วัดความรู้ความเข้าใจเกี่ยวกับองค์ประกอบของคอมพิวเตอร์</p>
+            <div class="info-card">
+                <h3><i class="fas fa-clipboard-question" style="color:#10b981;"></i> ทดสอบความรู้ของคุณ</h3>
+                <p>หลังจากที่เรียนรู้เนื้อหาครบทุกยูนิตแล้ว มาร่วมตอบคำถามสั้นๆ 10 ข้อ เพื่อทบทวนความจำและประเมินความเข้าใจในบทเรียนนี้กันครับ</p>
+                <a href="#" class="quiz-btn">เริ่มทำแบบทดสอบ</a>
+            </div>
+        </div>
+
+        <div id="author" class="tab-content">
+            <h1>ผู้จัดทำเว็บไซต์</h1>
+            <p class="welcome-text">ข้อมูลผู้พัฒนาบทเรียนออนไลน์</p>
+            <div class="profile-container">
+                <div class="profile-img">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="profile-info">
+                    <h3>นายสมชาย รักเรียน</h3>
+                    <p><strong>ตำแหน่ง:</strong> ผู้พัฒนา/อาจารย์ผู้สอน</p>
+                    <p><strong>สาขาวิชา:</strong> เทคโนโลยีสารสนเทศและการสื่อสาร</p>
+                    <p><strong>ติดต่อ:</strong> somchai.r@email.com</p>
+                </div>
             </div>
         </div>
 
     </div>
 
     <script>
-        function switchPage(pageId) {
-            // 1. ซ่อนเนื้อหาทุกหน้าก่อน
-            const pages = document.querySelectorAll('.page-content');
-            pages.forEach(page => page.classList.remove('active'));
-
-            // 2. แสดงเฉพาะหน้าที่มี ID ตรงกับที่กด
-            document.getElementById(pageId).classList.add('active');
-
-            // 3. เปลี่ยนสีไฮไลท์ของปุ่มเมนูที่ถูกเลือก
-            const buttons = document.querySelectorAll('.menu-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // หาปุ่มที่คลิกและใส่คลาส active ให้มัน
-            event.currentTarget.classList.add('active');
+    function openTab(evt, tabName) {
+        evt.preventDefault();
+        
+        // 1. ซ่อนเนื้อหาทุกหน้าก่อน
+        var tabContent = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabContent.length; i++) {
+            tabContent[i].classList.remove("active");
         }
+        
+        // 2. เอาสถานะ Active ออกจากปุ่มเมนูทั้งหมด
+        var menuLinks = document.getElementsByClassName("menu-link");
+        for (var i = 0; i < menuLinks.length; i++) {
+            menuLinks[i].classList.remove("active");
+        }
+        
+        // 3. แสดงเฉพาะหน้าปัจจุบันที่เลือก และเปลี่ยนปุ่มเมนูเป็น Active
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
     </script>
-
 </body>
 </html>
